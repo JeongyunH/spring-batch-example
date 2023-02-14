@@ -1,0 +1,25 @@
+spring:
+  batch:
+    job:
+      names: ${job.name:NONE}
+    initialize-scheme:
+  datasource:
+    driver-class-name: org.h2.Driver
+    data: classpath:person.sql
+
+  sql:
+    init:
+      data-locations:
+        - classpath:person.sql
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+        ddl-auto: create
+
+
+#spring.config.import: application-mysql.yml
+
