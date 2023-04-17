@@ -4,7 +4,10 @@ spring:
       names: ${job.name:NONE}
     initialize-scheme:
   datasource:
+    url: jdbc:h2:mem:user-test;
     driver-class-name: org.h2.Driver
+    username: sa
+    password:
     data: classpath:person.sql
 
   sql:
@@ -19,6 +22,13 @@ spring:
       hibernate:
         format_sql: true
         ddl-auto: create
+#        globally_quoted_identifiers: true
+        auto_quote_keyword: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
 
 
 #spring.config.import: application-mysql.yml
